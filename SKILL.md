@@ -40,7 +40,11 @@ or a series-bible document. Read it in full before asking anything. Look for, an
 - language rules (e.g. code and comments in one language, narration in another),
 - audience assumptions (what they already know before episode 1),
 - scope rules for the dataset (how much domain knowledge is allowed on camera),
-- dates, presenters, rotation.
+- dates, presenters, rotation,
+- earlier material the series builds on or replaces (a previous course, notebook, or playlist).
+  Read it, not just its title. It may already teach part of this series' syllabus, which changes
+  what the audience already saw and which episodes overlap. When it does, ask whether this series
+  continues it, replaces it, or is independent, and record the answer in the findings document.
 
 Then read the previous episode's pseudo-script, if one exists. It is the real source for "what the
 audience already saw": the variables it left defined, the concepts it introduced, and what its
@@ -55,7 +59,16 @@ that the script must not "fix".
 ### Calibrate the presenter of this episode
 
 Series often rotate presenters, so calibrate **the person presenting this episode**, not whoever
-happens to be typing. Ask briefly, on two separate axes (the same split `build-to-learn` uses):
+happens to be typing. The person in the session is often the **script author**, who writes the
+pseudo-scripts for every presenter. Ask who presents this episode. When the author and presenter are
+different people:
+
+- the calibration levels below are the presenter's, not the author's;
+- the author answers the gate questions on the presenter's behalf, and the questions are aimed at
+  the presenter's level;
+- the pseudo-script must be enough on its own for the presenter, who wasn't in the session.
+
+Ask briefly, on two separate axes (the same split `build-to-learn` uses):
 
 1. **The tool or subject being taught** (the library, the technique).
 2. **The domain of the shared dataset** (the science or business context the examples come from).
@@ -128,6 +141,8 @@ in one go hides exactly the cell nobody looked at.
    - Most important: if the gap comes from the **dataset's domain** rather than the subject being
      taught, that's a signal to **simplify the data or the framing**, not to make the presenter
      study more. Record it in the findings document (see below).
+   - Before an answer becomes a "likely question", check any factual or quantitative claim in it
+     with a quick real run. Refine the answer with the result, even when the gist was right.
    - Skip the gate for purely mechanical sections (a closing line, a link) unless the presenter
      asked for it everywhere. Ask once at calibration which they prefer and apply it consistently.
 4. **The presenter refines.** Apply their edits. Their version wins over yours on phrasing, order
@@ -137,10 +152,20 @@ in one go hides exactly the cell nobody looked at.
 
 ### Section-specific rules
 
+- **Summary** (always first, before the objective, even when the project's template lacks it; if
+  so, propose adding it to the project's template): 3–4 short paragraphs so the presenter grasps the
+  whole episode before reading it section by section. Cover the question this episode answers within
+  the series, which data it uses and *why that data*, and the path the episode walks from start to
+  finish. Its job is that the presenter never meets a dataset that seems to come out of nowhere.
+  Write it from what's already decided; don't presume sections still pending approval.
 - **Objective**: one sentence, written from the audience's side ("by the end, you can ..."), not the
-  presenter's ("I will show ...").
+  presenter's ("I will show ..."). If it makes a quantitative promise ("much faster", "uses half
+  the memory"), measure it at the data scale this episode actually uses before keeping it. A claim
+  that only holds at a larger scale gets reworded.
 - **What the audience already saw**: taken from the previous pseudo-script, not from the syllabus
-  alone. List the variables that exist at the start of this episode and how to rebuild them in the
+  alone. For episode 1, take it from the prior material the project points to, and check each
+  "they already know X" by searching that material (grep its code cells), not by assumption.
+  Also list what they have *not* seen that the cells might be tempted to use. List the variables that exist at the start of this episode and how to rebuild them in the
   first cell, because every episode must run on its own, from files, never from the previous
   episode's session state.
 - **What you need to know about the data**: respect the project's limit (if it sets one, e.g. "five
@@ -171,9 +196,12 @@ in one go hides exactly the cell nobody looked at.
   that only works because of a variable left over from an earlier experiment will fail on camera.
 - Paste the **actual output**, never a hand-computed one. A wrong "expected output" on screen is
   worse than none, because the presenter will trust it and the audience will see the mismatch live.
-- Keep a runnable companion file next to the pseudo-script (e.g. `<episode>_cells.py`, or a
-  notebook if that's what the series records with) holding exactly the cells in the script. It lets
-  anyone re-verify the whole episode in one command after the data or the environment changes.
+- Keep a runnable reference file holding exactly the cells in the script, in the format the series
+  records with (often a notebook), plus a small runner that executes it top to bottom in a fresh
+  kernel or process and prints every output. It lets anyone re-verify the whole episode in one
+  command after the data or the environment changes. See "What the presenter receives" for who it
+  belongs to. If the runner needs packages the environment lacks, install them into the project's
+  environment and say so.
 - When an output depends on the machine (timings, memory addresses, random numbers without a seed),
   say so next to it ("≈, varies per machine") and show the order of magnitude, not a fake-precise
   number. If the series has a fixed seed, use it.
@@ -222,6 +250,30 @@ yourself before claiming what it shows.
 
 ---
 
+## What the presenter receives
+
+Ask the script author at the start of the first episode how the hand-off works, and record the
+answer in the project's memory or instructions so it isn't re-asked. The default, when the author
+writes and someone else presents:
+
+- **The presenter receives only the pseudo-script**, plus a short structure guide for their own
+  material. They build their own recording material (notebook, slides, script file) from the
+  pseudo-script. Implementing it themselves is how they come to understand what they'll explain.
+- **The reference file is the author's.** It holds every approved cell already run, so the author
+  can confirm everything works. It isn't handed over by default, only if the presenter gets stuck.
+  Keep it in a folder separate from where presenters keep their own material, so the two never
+  collide at the same path. Mark its author line as a placeholder.
+- **The presenter's material follows a fixed structure** that the project points to (often the
+  structure of an earlier series), with the presenter's own authorship, language and phrasing.
+  Write that structure once as a guide next to the pseudo-scripts: where the file goes, the paths
+  that work from there, the header with an author line, the fixed sections, the language rules,
+  and how to verify it with the same runner. If the project points to no structure, ask; don't
+  borrow one from an unrelated general standard.
+- **What is fixed for the presenter:** the code and its output. If they change a cell, their
+  output must still match the pseudo-script's.
+
+---
+
 ## Default template (only when the project defines none)
 
 Spanish:
@@ -229,6 +281,7 @@ Spanish:
 ```markdown
 # Pseudoguion: <Serie> <N> - <Tema>
 
+## Resumen (léelo primero)
 ## Objetivo (1 frase)
 ## Lo que la audiencia ya vio
 ## Lo que necesitas saber del dato (máximo 5 líneas)
@@ -244,6 +297,7 @@ English:
 ```markdown
 # Pseudo-script: <Series> <N> - <Topic>
 
+## Summary (read this first)
 ## Objective (1 sentence)
 ## What the audience already saw
 ## What you need to know about the data (5 lines max)
@@ -296,8 +350,8 @@ Afecta a: <which other episodes this change would touch>.
 
 These are proposals for the project owner, not changes to make silently. Never edit the
 data-preparation script, the syllabus, or another episode's approved pseudo-script without explicit
-approval. If a change is approved, re-run the companion cell files of **every** episode it touches
-and update their pasted outputs.
+approval. If a change is approved, re-run the reference files of **every** episode it touches and
+update their pasted outputs.
 
 ## What never goes into a pseudo-script
 

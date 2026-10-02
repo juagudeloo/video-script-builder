@@ -23,6 +23,10 @@ live in the series project's own `CLAUDE.md`, which the skill reads first.
 - One section at a time, explicit approval before the next one. Code cells are approved per
   concept, not as one block.
 - Every cell is run top to bottom in a fresh process in the project's environment. Real output only.
-  A runnable companion file accompanies each pseudo-script.
+  A runnable reference file (plus a runner) accompanies each pseudo-script. It belongs to the
+  script author; by default the presenter receives only the pseudo-script and builds their own
+  material from it.
 - Cells use only what the audience has already seen, checked against the syllabus.
 - Spanish and English header variants stay structurally in sync; never mix them in one document.
+- Every pseudo-script opens with a Summary section before the objective, so the presenter gets the
+  big picture (question, data and why that data, path) before the details.
