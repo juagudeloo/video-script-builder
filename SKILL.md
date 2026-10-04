@@ -158,6 +158,12 @@ in one go hides exactly the cell nobody looked at.
   the series, which data it uses and *why that data*, and the path the episode walks from start to
   finish. Its job is that the presenter never meets a dataset that seems to come out of nowhere.
   Write it from what's already decided; don't presume sections still pending approval.
+- **How to read this pseudo-script (legend)** (right after the summary, even when the project's
+  template lacks it; if so, propose adding it): a table of every label the pseudo-script uses (e.g.
+  context, what to present, per-concept further-reading prompts, cell, output, "≈ varies per
+  machine", what to point at, off-camera reference, "covered in episode N"), with what each one is
+  and whether it is said on camera. Keep it identical across episodes and extend it whenever a new
+  label appears, so a presenter who skipped earlier episodes can still read any script.
 - **Objective**: one sentence, written from the audience's side ("by the end, you can ..."), not the
   presenter's ("I will show ..."). If it makes a quantitative promise ("much faster", "uses half
   the memory"), measure it at the data scale this episode actually uses before keeping it. A claim
@@ -299,6 +305,7 @@ Spanish:
 # Pseudoguion: <Serie> <N> - <Tema>
 
 ## Resumen (léelo primero)
+## Cómo leer este pseudoguion (nomenclatura)
 ## Objetivo (1 frase)
 ## Lo que la audiencia ya vio
 ## Preparación: cómo tener los datos listos
@@ -316,6 +323,7 @@ English:
 # Pseudo-script: <Series> <N> - <Topic>
 
 ## Summary (read this first)
+## How to read this pseudo-script (legend)
 ## Objective (1 sentence)
 ## What the audience already saw
 ## Setup: getting the data ready
