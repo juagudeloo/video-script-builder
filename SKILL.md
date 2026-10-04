@@ -165,9 +165,26 @@ in one go hides exactly the cell nobody looked at.
 - **What the audience already saw**: taken from the previous pseudo-script, not from the syllabus
   alone. For episode 1, take it from the prior material the project points to, and check each
   "they already know X" by searching that material (grep its code cells), not by assumption.
-  Also list what they have *not* seen that the cells might be tempted to use. List the variables that exist at the start of this episode and how to rebuild them in the
+  Also list what they have *not* seen that the cells might be tempted to use.
+  Never assume the presenter watched the earlier episodes: with rotating presenters that often
+  fails. Summarize what was *actually presented* there, from the approved pseudo-scripts: the
+  ideas, the analogies used, the key variables and outputs, so the presenter can pick them up
+  consistently. Give the same context for every "covered in episode N" pointer in the script. List the variables that exist at the start of this episode and how to rebuild them in the
   first cell, because every episode must run on its own, from files, never from the previous
   episode's session state.
+- **Setup: getting the data ready** (even when the project's template lacks it; if so, propose
+  adding it): everything the presenter needs to have the data on their machine before reading on.
+  - How to get it: access (if the repo is private), clone, install the environment, and one command
+    that proves the data loads, with its expected output. Run these steps yourself from a **fresh
+    clone** of the remote before writing them, not from your working copy.
+  - Where the presenter's own material goes and which paths and imports work from there.
+  - A table of every data file: what it is in plain words, and whether this episode uses it and
+    why (or which later episode does).
+  - Marked as off-camera reference: the exact source of the raw data (archive, file name, a direct
+    download URL or API call you have checked actually resolves), and **every** step the
+    preparation script applies, each with its code line, what it does, why, and verified numbers
+    (counts, sizes, ranges). Nobody on the team should be using data whose processing they can't
+    explain; "the script did it" is not an explanation.
 - **What you need to know about the data**: respect the project's limit (if it sets one, e.g. "five
   lines maximum"). If it doesn't fit, don't write a longer section. Stop and propose a change to the
   data preparation instead, recorded in the findings document.
@@ -284,6 +301,7 @@ Spanish:
 ## Resumen (léelo primero)
 ## Objetivo (1 frase)
 ## Lo que la audiencia ya vio
+## Preparación: cómo tener los datos listos
 ## Lo que necesitas saber del dato (máximo 5 líneas)
 ## Conceptos a presentar (en orden, máximo 3 o 4)
 ## Celdas de código (completas, probadas, con la salida esperada)
@@ -300,6 +318,7 @@ English:
 ## Summary (read this first)
 ## Objective (1 sentence)
 ## What the audience already saw
+## Setup: getting the data ready
 ## What you need to know about the data (5 lines max)
 ## Concepts to present (in order, 3–4 max)
 ## Code cells (complete, tested, with real output)
