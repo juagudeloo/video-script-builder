@@ -245,6 +245,17 @@ esto lo vemos en el video N` / `# note: covered in episode N`, and listed under 
 Check this explicitly for every cell against the syllabus. It's the most common way a series
 quietly breaks its own order.
 
+### Don't re-show what earlier episodes already showed
+
+The opposite check matters too. Before drafting an episode's cells, list the cells of every earlier
+approved pseudo-script and compare each new cell against them. A cell that reproduces an output the
+audience already saw (the same inspection, the same printout on the same data) gets cut, and the
+point is recalled in words instead ("as we saw in episode N, ..."). Reusing an earlier tool for a new
+purpose is fine; repeating its demonstration is not. A common case: printing a structural property
+(a shape, a length, a type) after every new operation out of habit. Print it only when it is the new
+information, for instance because the values themselves are too many to show. Do this cross-check
+before showing the cells to the presenter, not after they point out the repetition.
+
 ### Cell format
 
 Each cell, in the pseudo-script:
