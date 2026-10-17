@@ -1,6 +1,6 @@
 ---
 name: video-script-builder
-description: Section-by-section methodology for writing the pseudo-script (pseudoguion) of one episode in an educational video series — objective, what the audience already saw, the minimum the presenter must know about the data, the concepts in order, complete code cells run for real with their actual output pasted in, likely audience questions, what to leave out, and the hand-off to the next episode. Claude drafts one section at a time, the presenter refines and approves it, and only then does the next section get drafted. Before a section is approved, Claude asks the presenter the questions the audience is most likely to ask about it, so nobody records a segment they can't defend on camera. Sibling to repo-deep-dive (understand an existing codebase) and build-to-learn (build something new while learning it), but for teaching something to an audience on video. Use when the user says things like "hagamos el pseudoguion del video N", "preparemos el guion del siguiente video", "armemos el script de este episodio sección por sección", "let's write the script for episode N", or otherwise wants to build a video script incrementally with verified code.
+description: Section-by-section methodology for writing the pseudo-script (pseudoguion) of one episode in an educational video series — objective, what the audience already saw, the minimum the presenter must know about the data, the concepts in order, complete code cells run for real with their actual output pasted in, the doubts the audience will have, what to leave out, and the hand-off to the next episode. Claude drafts one section at a time, the presenter refines and approves it, and only then does the next section get drafted. Before a section is approved, Claude asks the presenter the questions the audience is most likely to ask about it, so nobody records a segment they can't defend on camera. Sibling to repo-deep-dive (understand an existing codebase) and build-to-learn (build something new while learning it), but for teaching something to an audience on video. Use when the user says things like "hagamos el pseudoguion del video N", "preparemos el guion del siguiente video", "armemos el script de este episodio sección por sección", "let's write the script for episode N", or otherwise wants to build a video script incrementally with verified code.
 ---
 
 # Video Script Builder
@@ -117,8 +117,8 @@ what it will contain:
 
 Then fill **one section at a time**, in the template's order. Never pre-fill several sections at
 once, even when it would save a round trip. The pacing is the point: each approved section
-constrains the next one (the concept list decides the code cells, the code cells decide the likely
-questions).
+constrains the next one (the concept list decides the code cells, the code cells decide the audience
+doubts).
 
 When the template has a large "code cells" section, treat **each concept's group of cells as its own
 sub-step**: draft, run, show, approve, then the next concept. A long block of twenty cells approved
@@ -134,14 +134,14 @@ in one go hides exactly the cell nobody looked at.
    to ask about *this* section, phrased as a viewer would ask them ("why not just use a loop?",
    "what happens if a value is missing?", "why is this number different from the one before?").
    Prefer questions with real stakes over recalling a definition.
-   - Good answer: confirm it and move on. A good question becomes a candidate for the "likely
-     questions" section, together with the answer the presenter gave, refined.
+   - Good answer: confirm it and move on. A good question becomes a candidate for the "audience
+     doubts" section, together with the answer the presenter gave, refined.
    - Shaky answer: explain it in the presenter's internalization style and ask a related question.
      After two attempts, teach it directly and move on. This is rehearsal, not an exam.
    - Most important: if the gap comes from the **dataset's domain** rather than the subject being
      taught, that's a signal to **simplify the data or the framing**, not to make the presenter
      study more. Record it in the findings document (see below).
-   - Before an answer becomes a "likely question", check any factual or quantitative claim in it
+   - Before an answer becomes an "audience doubt", check any factual or quantitative claim in it
      with a quick real run. Refine the answer with the result, even when the gist was right.
    - Skip the gate for purely mechanical sections (a closing line, a link) unless the presenter
      asked for it everywhere. Ask once at calibration which they prefer and apply it consistently.
@@ -199,8 +199,15 @@ in one go hides exactly the cell nobody looked at.
   concept must lead to a visible result on the dataset. A concept with no on-screen payoff gets cut
   or moved.
 - **Code cells**: see below.
-- **Likely questions**: built mostly from the gate rounds, each with a short answer the presenter
-  has already said in their own words. Add questions the gate didn't cover only if they're likely.
+- **Audience doubts**: built mostly from the gate rounds, in the order they come up in the episode.
+  In a recorded video nobody interrupts to ask, but viewers still get stuck at the same points, so
+  frame this section as doubts to get ahead of, not questions to answer (name it that way too: a
+  "likely questions" heading reads as if someone will ask). Each doubt carries a short **on-camera**
+  line (one or two sentences the presenter says at that moment, pre-emptively: "you may be
+  wondering...") and, when needed, a **for the comments** explanation: the full answer with
+  numbers, for replying to viewers afterwards or going deeper. Add both labels to the legend. For a
+  live format with real audience questions, the classic "likely questions" framing still fits. Add
+  doubts the gate didn't cover only if they're likely.
 - **What NOT to explain in this episode**: the tempting tangents, each with where it does belong
   ("episode N" or "out of scope for the series"). This protects the presenter from going down a
   rabbit hole live.
@@ -323,7 +330,7 @@ Spanish:
 ## Lo que necesitas saber del dato (máximo 5 líneas)
 ## Conceptos a presentar (en orden, máximo 3 o 4)
 ## Celdas de código (completas, probadas, con la salida esperada)
-## Preguntas probables y cómo responderlas
+## Dudas que va a tener la audiencia (y cómo adelantarse)
 ## Lo que NO hay que explicar en este video
 ## Cierre y enlace al siguiente video
 ```
@@ -341,7 +348,7 @@ English:
 ## What you need to know about the data (5 lines max)
 ## Concepts to present (in order, 3–4 max)
 ## Code cells (complete, tested, with real output)
-## Likely questions and how to answer them
+## Doubts the audience will have (and how to get ahead of them)
 ## What NOT to explain in this episode
 ## Closing and link to the next episode
 ```
