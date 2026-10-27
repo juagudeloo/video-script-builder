@@ -152,6 +152,24 @@ in one go hides exactly the cell nobody looked at.
 
 ### Section-specific rules
 
+**Write shared material once, not in every episode.** Three of the sections below are the same in
+every episode of a series that reuses one dataset and one repository: the legend, the setup and
+data provenance, and the short data summary. Repeating them in each pseudo-script makes every script
+longer and lets the copies drift apart. Write them **once**, in a central document the presenters
+already open, such as the presenter section of the project's README. Each pseudo-script then keeps
+a single short section with only what is specific to that episode:
+- a link to the shared section, for a presenter reading their first script;
+- where this episode's material goes (file name, branch);
+- which data files this episode uses and why;
+- which preparation steps actually show up on screen in this episode, with their code line and
+  verified numbers.
+
+If the project's template still lists these sections for every episode, propose this change to the
+project owner. Once it is agreed, record it in the project's instructions. Rewrite earlier, approved
+scripts only if the owner asks.
+
+The rules below say *what* each of those three pieces must contain, wherever it ends up living.
+
 - **Summary** (always first, before the objective, even when the project's template lacks it; if
   so, propose adding it to the project's template): 3–4 short paragraphs so the presenter grasps the
   whole episode before reading it section by section. Cover the question this episode answers within
